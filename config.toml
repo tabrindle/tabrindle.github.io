@@ -1,5 +1,5 @@
 author = "Trevor Brindle"
-baseurl = "https://tabrindle.github.io"
+baseurl = "http://trevorbrindle.com"
 builddrafts = true
 canonifyurls = true
 contentdir = "content"
