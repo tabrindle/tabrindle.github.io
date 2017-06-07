@@ -1,19 +1,15 @@
 language: go
-branches:
-  only:
-    - dev
-install: 
-  - go get -v github.com/spf13/hugo
-script:
-  - make clean build
+install: go get -v github.com/spf13/hugo
+script: make clean build
 deploy:
   provider: pages
   skip_cleanup: true
   local_dir: public
   fqdn: trevorbrindle.com
+  target_branch: master
   github_token: $GITHUB_TOKEN
   on:
-    branch: master
+    branch: dev
 notifications:
   email:
     on_failure: always
