@@ -1,0 +1,38 @@
+author = "Trevor Brindle"
+baseurl = "https://tabrindle.github.io"
+builddrafts = true
+canonifyurls = true
+contentdir = "content"
+disqusshortname = "trevorbrindle-com"
+googleAnalytics = ""
+languageCode = "en-US"
+layoutdir = "layouts"
+pluralizelisttitles = false
+publishdir = "public"
+pygmentsuseclasses = true
+theme = "cocoa"
+title = "Trevor Brindle"
+
+[params]
+author = "Trevor Brindle"
+avatar = "img/profile.jpg"
+cachebuster = true                        
+dateform = "Jan 2, 2006"
+dateformfull = "Mon Jan 2 2006 15:04:05 MST"
+description = "Yep."
+email = "tabrindle@gmail.com"
+extracssfiles = [ "/css/override.css" ]
+faviconfile = "img/leaf.ico"
+github = "//github.com/tabrindle"
+highlightjs = true
+i18n_flags = false
+lang = "en"
+latestpostscount = 10
+linkedin = "//linkedin.com/in/trevorbrindle"
+noshowreadtime = false
+selfintro = ""
+twitter = "//twitter.com/vincekerrazzi"
+
+[permalinks]
+fixed = ":title/"
+blog  = ":slug/"
