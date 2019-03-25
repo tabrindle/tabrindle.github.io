@@ -15,8 +15,8 @@ title = "Trevor Brindle"
 
 [params]
 author = "Trevor Brindle"
-avatar = "img/profile.jpg"
-cachebuster = true                        
+avatar = "img/trevor_ir.png"
+cachebuster = true
 dateform = "Jan 2, 2006"
 dateformfull = "Mon Jan 2 2006 15:04:05 MST"
 description = "Yep."
@@ -30,8 +30,8 @@ lang = "en"
 latestpostscount = 10
 linkedin = "//linkedin.com/in/trevorbrindle"
 noshowreadtime = false
-selfintro = ""
-twitter = "//twitter.com/vincekerrazzi"
+selfintro = "Software Engineer at Modus Create. Interested in React, React Native, music, party parrots, open source software, and automating all the things. Lives and goofs around in Florida with his wife and daughter."
+twitter = "//twitter.com/trevorbrindlejs"
 
 [permalinks]
 fixed = ":title/"
