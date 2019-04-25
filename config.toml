@@ -15,7 +15,7 @@ title = "Trevor Brindle"
 
 [params]
 author = "Trevor Brindle"
-avatar = "img/trevor_ir.png"
+gravatar = "26221df5145bdf54af1c406561c5a95f"
 cachebuster = true
 dateform = "Jan 2, 2006"
 dateformfull = "Mon Jan 2 2006 15:04:05 MST"
