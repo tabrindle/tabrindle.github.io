@@ -9,7 +9,7 @@
     <div class="container">
         <div class="content">
             {{ if .Site.Params.gravatar }}
-            <a {{ printf "href=%q" ("/" | relLangURL) | safeHTMLAttr }}><img class="avatar" src="https://gravatar.com/avatar/{{ .Site.Params.gravatar }}?s=50" rcset="https://gravatar.com/avatar/{{ .Site.Params.gravatar }}?s=100 2x, https://gravatar.com/avatar/{{ .Site.Params.gravatar }}?s=150 3x, https://gravatar.com/avatar/{{ .Site.Params.gravatar }}?s=200 4x"></a>
+            <img class="avatar" src="https://gravatar.com/avatar/{{ .Site.Params.gravatar }}?s=50" rcset="https://gravatar.com/avatar/{{ .Site.Params.gravatar }}?s=100 2x, https://gravatar.com/avatar/{{ .Site.Params.gravatar }}?s=150 3x, https://gravatar.com/avatar/{{ .Site.Params.gravatar }}?s=200 4x">
             {{ else if .Site.Params.avatar }}
                 {{ $.Scratch.Add "srcset" (slice (printf "%s 1x" (.Site.Params.avatar|absURL))) }}
                 {{ $directory := replaceRE "^(.*)/[^/]+$" "$1" .Site.Params.avatar }}
@@ -21,9 +21,9 @@
                     {{ end }}
                 {{ end }}
                 {{ $srcset := delimit ($.Scratch.Get "srcset") "," }}
-                <a {{ printf "href=%q" ("/" | relLangURL) | safeHTMLAttr }}><img class="avatar" src="/{{ .Site.Params.avatar }}" {{ printf "srcset=%q" $srcset | safeHTMLAttr }}></a>
+                <img class="avatar" alt="avatar" src="/{{ .Site.Params.avatar }}" {{ printf "srcset=%q" $srcset | safeHTMLAttr }}>
             {{ end }}
-            <a href="/"><div class="name">{{ .Site.Params.author }}</div></a>
+            <div class="name">{{ .Site.Params.author }}</div>
             {{ if .Site.Params.selfintro }}
               <h3 class="self-intro">{{ .Site.Params.selfintro }}</h3>
             {{ end }}
