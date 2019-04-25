@@ -2,10 +2,10 @@
   color: #333 !important;
 }
 .light {
-  color: #666 !important;
+  color: #555 !important;
 }
 .accent {
-  color: #428bca !important;
+  color: #1872bf !important;
 }
 @media (min-width: 550px) {
   .small-screens-only {
@@ -266,7 +266,7 @@ section.header nav ul a:hover {
     text-align: left;
   }
   section.header nav ul a {
-    color: #666;
+    color: #555;
   }
   section.header nav ul a:hover {
     color: #333;
@@ -364,10 +364,10 @@ section.main .content .title-container .initials {
   font-smoothing: antialiased;
   color: #333;
   text-transform: uppercase;
-  color: #666;
+  color: #555;
 }
 section.main .content .title-container .initials a {
-  color: #666;
+  color: #555;
   -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
   -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
   -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
@@ -392,7 +392,7 @@ section.main .content .front-matter .page-heading {
   margin-bottom: 0;
 }
 section.main .content .front-matter .meta {
-  color: #666;
+  color: #555;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -489,7 +489,7 @@ section.main .container .content .post-item {
   list-style: disc inside;
 }
 section.main .container .content .post-item .meta {
-  color: #666;
+  color: #555;
   display: none;
   min-width: 100px;
   text-align: right;
@@ -510,7 +510,7 @@ section.main .container .content .no-bullet .date {
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   color: #333;
-  color: #666 !important;
+  color: #555 !important;
   font-style: normal;
 }
 section {
@@ -557,14 +557,14 @@ section.main {
   }
 }
 a {
-  color: #428bca;
+  color: #1872bf;
   -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
   -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
   -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
   -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
 }
 a:hover {
-  color: #2a6496;
+  color: #104e84;
 }
 img {
   max-width: 100%;
@@ -646,7 +646,7 @@ section.main .content .markdown pre code {
   font-size: 1rem;
 }
 section.main .content .markdown a code {
-  color: #428bca !important;
+  color: #1872bf !important;
 }
 section.main .content .markdown a code:hover {
   text-decoration: underline;
@@ -692,7 +692,7 @@ section.main .content .markdown hr {
 section.main .content .markdown abbr {
   font-size: 0.85rem;
   font-weight: bold;
-  color: #666666;
+  color: #555;
   text-transform: uppercase;
 }
 section.main .content .markdown abbr[title] {
