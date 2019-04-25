@@ -1,5 +1,5 @@
 author = "Trevor Brindle"
-baseurl = "http://trevorbrindle.com"
+baseurl = "https://trevorbrindle.com"
 builddrafts = true
 canonifyurls = true
 contentdir = "content"
