@@ -3,7 +3,6 @@ baseurl = "https://trevorbrindle.com"
 builddrafts = true
 canonifyurls = true
 contentdir = "content"
-disqusshortname = "trevorbrindle-com"
 googleAnalytics = ""
 languageCode = "en-US"
 layoutdir = "layouts"
