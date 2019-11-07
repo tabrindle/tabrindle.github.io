@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Trevor Brindle">
+<meta name="description" content="In case you&rsquo;ve been to my site before, you may have noticed that I&rsquo;m not using Wordpress anymore. Good developers are lazy, but come on&hellip; not that lazy! In an effort to learn something new and not feel as bad about myself, I decided to take a look at a couple static site generators I had seen on Twitter.
+The top contenders are Jekyll, Hugo and Hexo, running on ruby, go and JavaScript.">
+
+<meta property="og:title" content="Static Sites with Hugo" />
+<meta property="og:description" content="In case you&rsquo;ve been to my site before, you may have noticed that I&rsquo;m not using Wordpress anymore. Good developers are lazy, but come on&hellip; not that lazy! In an effort to learn something new and not feel as bad about myself, I decided to take a look at a couple static site generators I had seen on Twitter.
+The top contenders are Jekyll, Hugo and Hexo, running on ruby, go and JavaScript." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://trevorbrindle.com/static-sites-with-hugo/" />
+<meta property="article:published_time" content="2017-06-07T14:38:00-05:00" />
+<meta property="article:modified_time" content="2017-06-07T14:38:00-05:00" />
+
+
+<title>
+
+
+     Static Sites with Hugo 
+
+</title>
+<link rel="canonical" href="https://trevorbrindle.com/static-sites-with-hugo/">
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <link rel="stylesheet" href="https://trevorbrindle.com/css/reset.css?t=2019-11-07%2018%3a57%3a44.17958893%20%2b0000%20UTC%20m%3d%2b0.067266199">
+    <link rel="stylesheet" href="https://trevorbrindle.com/css/pygments.css?t=2019-11-07%2018%3a57%3a44.17958893%20%2b0000%20UTC%20m%3d%2b0.067266199">
+    <link rel="stylesheet" href="https://trevorbrindle.com/css/main.css?t=2019-11-07%2018%3a57%3a44.17958893%20%2b0000%20UTC%20m%3d%2b0.067266199">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://trevorbrindle.com/img/leaf.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+            <img class="avatar" alt="avatar" src="https://gravatar.com/avatar/26221df5145bdf54af1c406561c5a95f?s=50" rcset="https://gravatar.com/avatar/26221df5145bdf54af1c406561c5a95f?s=100 2x, https://gravatar.com/avatar/26221df5145bdf54af1c406561c5a95f?s=150 3x, https://gravatar.com/avatar/26221df5145bdf54af1c406561c5a95f?s=200 4x">
+            
+            <div class="name">Trevor Brindle</div>
+            
+              <h3 class="self-intro">Software Engineer at Modus Create. Interested in React, React Native, music, party parrots, open source software, and automating all the things. Lives and goofs around in Florida with his wife and daughter.</h3>
+            
+            <nav>
+                <ul>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/tabrindle" target="_blank" rel="noopener"><img class="icon" src="https://trevorbrindle.com/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//twitter.com/trevorbrindlejs" target="_blank" rel="noopener"><img class="icon" src="https://trevorbrindle.com/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+            <a href="//linkedin.com/in/trevorbrindle" target="_blank" rel="noopener"><img class="icon" src="https://trevorbrindle.com/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:tabrindle@gmail.com"><img class="icon" src="https://trevorbrindle.com/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://trevorbrindle.com/index.xml"><img class="icon" src="https://trevorbrindle.com/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Static Sites with Hugo
+
+</div>
+
+                    <div class="initials"><a href="https://trevorbrindle.com"></a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Wed Jun 7 2017 14:38:00 -0500'>Jun 7, 2017</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <p>In case you&rsquo;ve been to my site before, you may have noticed that I&rsquo;m not using Wordpress anymore. Good developers are lazy, but come on&hellip; not that lazy! In an effort to learn something new and not feel as bad about myself, I decided to take a look at a couple static site generators I had seen on Twitter.</p>
+
+<p>The top contenders are Jekyll, Hugo and Hexo, running on ruby, go and JavaScript. I love JS, hate Ruby&rsquo;s setup and installation woes (not to mention I have an extremely old version on MacOS to deal with), and haven&rsquo;t done much with Go. So, here we Go with <a href="https://gohugo.io">Hugo</a>! (Sorry).</p>
+
+<p>The basic first steps to getting a site going with Hugo</p>
+
+<ul>
+<li>Create a repo on GitHub: yourusername.github.io</li>
+<li>Install Hugo via <code>go get -v github.com/spf13/hugo</code> or <code>brew install hugo</code></li>
+<li>Run through Hugo&rsquo;s comprehensive <a href="https://gohugo.io/overview/quickstart/">Quick Start</a></li>
+</ul>
+
+<p>Here is the interesting part - I don&rsquo;t want to have to go through some silly deployment process every time I write something, and I love CI, so I decided to try Travis CI. I have a lot of experience with Jenkins, and I can tell you that Travis is a breath of fresh air. Getting it configured was about 10 minutes of Google searching, and 3 test builds.</p>
+
+<p>The config is done through a <code>.travis.yml</code> in your repo, and really didn&rsquo;t require anything else but authorizing Travis to access your GitHub, and generating a personal token for Travis to use to write back to the repo. Best of all, Travis has a deploy property on its config file for a lot of <a href="https://docs.travis-ci.com/user/deployment/#Supported-Providers">popular deployment providers</a> like AWS S3, GitHub pages, npm, Azure, GAE etc.</p>
+
+<p>Here&rsquo;s my .<code>travis.yml</code>:</p>
+
+<pre><code>language: go
+install: go get -v github.com/spf13/hugo
+script: make clean build
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: public
+  fqdn: trevorbrindle.com
+  target_branch: master
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: dev
+notifications:
+  email:
+    on_failure: always
+</code></pre>
+
+<p>The secret here is have all of your source in something like a source or dev branch, and GitHub publishes the page from the master branch. The builds on Travis take about a minute, in spite of downloading and building Hugo, running it and deploying it to my GitHub page. Couldn&rsquo;t be happier!</p>
+
+<p>And because I can:</p>
+
+<p><a href="https://travis-ci.org/tabrindle/tabrindle.github.io"><img src="https://travis-ci.org/tabrindle/tabrindle.github.io.svg?branch=dev" alt="Build Status" /></a></p>
+
+                <br>
+		<p><a href="https://trevorbrindle.com/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+

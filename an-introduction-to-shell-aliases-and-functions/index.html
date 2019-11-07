@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Trevor Brindle">
+<meta name="description" content="Is there a task that you repeat a lot? Is this a task that only you repeat, or is done in a way personal to you? Do you want to use a command in every directory on your computer?  Use a Shell Alias! An alias is simply a shortcut to a command. Use it to avoid typing many options, many commands, or anything that&rsquo;s just too many keystrokes.">
+
+<meta property="og:title" content="An Introduction to Shell Aliases &amp; Functions" />
+<meta property="og:description" content="Is there a task that you repeat a lot? Is this a task that only you repeat, or is done in a way personal to you? Do you want to use a command in every directory on your computer?  Use a Shell Alias! An alias is simply a shortcut to a command. Use it to avoid typing many options, many commands, or anything that&rsquo;s just too many keystrokes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://trevorbrindle.com/an-introduction-to-shell-aliases-and-functions/" />
+<meta property="article:published_time" content="2019-03-20T00:00:00-05:00" />
+<meta property="article:modified_time" content="2019-03-20T00:00:00-05:00" />
+
+
+<title>
+
+
+     An Introduction to Shell Aliases &amp; Functions 
+
+</title>
+<link rel="canonical" href="https://trevorbrindle.com/an-introduction-to-shell-aliases-and-functions/">
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <link rel="stylesheet" href="https://trevorbrindle.com/css/reset.css?t=2019-11-07%2018%3a57%3a44.177949925%20%2b0000%20UTC%20m%3d%2b0.065627189">
+    <link rel="stylesheet" href="https://trevorbrindle.com/css/pygments.css?t=2019-11-07%2018%3a57%3a44.177949925%20%2b0000%20UTC%20m%3d%2b0.065627189">
+    <link rel="stylesheet" href="https://trevorbrindle.com/css/main.css?t=2019-11-07%2018%3a57%3a44.177949925%20%2b0000%20UTC%20m%3d%2b0.065627189">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://trevorbrindle.com/img/leaf.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+            <img class="avatar" alt="avatar" src="https://gravatar.com/avatar/26221df5145bdf54af1c406561c5a95f?s=50" rcset="https://gravatar.com/avatar/26221df5145bdf54af1c406561c5a95f?s=100 2x, https://gravatar.com/avatar/26221df5145bdf54af1c406561c5a95f?s=150 3x, https://gravatar.com/avatar/26221df5145bdf54af1c406561c5a95f?s=200 4x">
+            
+            <div class="name">Trevor Brindle</div>
+            
+              <h3 class="self-intro">Software Engineer at Modus Create. Interested in React, React Native, music, party parrots, open source software, and automating all the things. Lives and goofs around in Florida with his wife and daughter.</h3>
+            
+            <nav>
+                <ul>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/tabrindle" target="_blank" rel="noopener"><img class="icon" src="https://trevorbrindle.com/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//twitter.com/trevorbrindlejs" target="_blank" rel="noopener"><img class="icon" src="https://trevorbrindle.com/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+            <a href="//linkedin.com/in/trevorbrindle" target="_blank" rel="noopener"><img class="icon" src="https://trevorbrindle.com/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:tabrindle@gmail.com"><img class="icon" src="https://trevorbrindle.com/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://trevorbrindle.com/index.xml"><img class="icon" src="https://trevorbrindle.com/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    An Introduction to Shell Aliases &amp; Functions
+
+</div>
+
+                    <div class="initials"><a href="https://trevorbrindle.com"></a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Wed Mar 20 2019 00:00:00 -0500'>Mar 20, 2019</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>5 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<ul>
+<li>Is there a task that you repeat a lot?</li>
+<li>Is this a task that only you repeat, or is done in a way personal to you?</li>
+<li>Do you want to use a command in every directory on your computer?</li>
+</ul>
+
+<h2 id="use-a-shell-alias">Use a Shell Alias!</h2>
+
+<p>An alias is simply a shortcut to a command. Use it to avoid typing many options, many commands, or anything that&rsquo;s just too many keystrokes.</p>
+
+<p>One of the most common examples is <code>ls</code>. Say you use <code>ls</code> a lot, but always want more information than the standard output. You might add a couple options, like <code>ls -la</code>. Check out the man page of <code>ls</code> with <code>man ls</code> for more option ideas.</p>
+
+<p>You can create a shell alias to shortcut these options. Type this into your terminal:</p>
+
+<p><code>alias lsla='ls -la'</code></p>
+
+<p>Now, when you type <code>lsla</code>, <code>ls -la</code> will be executed.</p>
+
+<p>In fact, you can even use aliases to override builtins and other commands, like this:</p>
+
+<p><code>alias ls='ls -la'</code></p>
+
+<p>Though it can be useful, I don&rsquo;t recommend always overriding commands because it&rsquo;s easy to forget your options once you&rsquo;re not using them every day, and one day you&rsquo;ll be helping out a friend and feel silly because your aliases aren&rsquo;t there.</p>
+
+<p>But, uh oh. Next time you open your terminal, your aliases are gone. Terminal session aliases can be useful too, but most of the time I want my aliases every time I open my terminal.</p>
+
+<h2 id="how-to-get-started">How to get started</h2>
+
+<p>To use your aliases every time you open your terminal, this requires adding them to your .bashrc (or .zshrc etc if you use a different shell like zsh)</p>
+
+<p>If you don&rsquo;t already have this file, create it like this, then open in your text editor.</p>
+
+<p><code>touch ~/.bashrc</code></p>
+
+<p>Paste in a handy alias like this one - <code>alias mkdirp='mkdir -pv'</code> (This automagically creates parent directories as needed instead of showing an error)</p>
+
+<p>Then in your terminal, run:</p>
+
+<p><code>source ~/.bashrc</code></p>
+
+<p>Now, in your current terminal session, and every one after that where your .bashrc is automatically sourced, your <code>mkdirp</code> command will be there.</p>
+
+<h2 id="my-favorites">My favorites</h2>
+
+<p>I like to consider myself a speaker, and while live demos are awesome, there are so many things that can go wrong. So when I demo, I cheat a little, and use <a href="https://asciinema.org/">asciinema</a> to record the terminal session. Then, I use an alias to make it look like I&rsquo;m typing the commands:</p>
+
+<p><code>alias demo='asciinema play ~/Developer/demo/envinfo.cast'</code></p>
+
+<p>Being a frequent web developer, I tend to use port 8000 for a lot of things, and we all know that strange situation where something crashed, but the port is still in use. Use this alias to find the process that is tying up port 8000 and kill it.</p>
+
+<p><code>alias kill8000='lsof -ti tcp:8000 -sTCP:LISTEN | xargs kill'</code></p>
+
+<p>Not everyone uses a git UI, but sometimes it&rsquo;s really great to be able to see the git log graph. This alias has a lot of options and colors set up to make it easier and more fun to read.</p>
+
+<p><code>alias gl=&quot;git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(red)%h%C(r) —— %C(bold blue)%an%C(r): %C(white)%s%C(r) %C(dim white) %C(bold green)(%ar)%C(r) %C(bold yellow)%d%C(r)' --all&quot;</code></p>
+
+<h2 id="shell-functions">Shell Functions</h2>
+
+<p>There are so many other things you can do with aliases, but you really shouldn&rsquo;t create multiline aliases or try to use variables in them. That&rsquo;s what shell functions are for. For example:</p>
+
+<pre><code>wtfport() {
+  sudo lsof -i :&quot;$1&quot;
+}
+</code></pre>
+
+<p>This is a bit like the above alias <code>kill8000</code>, but takes an argument of a port number and tells you what process is using that port. This is probably a little bit safer than just killing it.</p>
+
+<p>I use git every day. And making sure I&rsquo;m not adding huge snapshots accidentally, and keeping code reasonably succinct is important to me, so I wrote this function for git. This checks the git subcommand run to see if it is status, and if it is, runs another command to tell me the total added and removed lines of code.</p>
+
+<pre><code>git() {
+  if [[ &quot;$1&quot; = &quot;status&quot; ]]; then
+    command git status;
+    command git --no-pager diff --shortstat HEAD
+  else
+    command git &quot;$@&quot;
+  fi
+}
+</code></pre>
+
+<p>Run <code>git status</code> and something like this is returned. <code>3 files changed, 16 insertions(+), 10 deletions(-)</code></p>
+
+<p>I make gifs all the time for demos on pull requests, and macOS has a handy built in screen recorder (use command + shift + 5). However, it records in .mov format, and I usually need a gif. While I am aware there are about a thousand different applications that do this, I already have ffmpeg and imagemagick on my computer. This function produces a reasonably optimized, high quality gif using a command like:</p>
+
+<p><code>gif ~/Desktop/test.mov</code></p>
+
+<pre><code>gif() {
+  ffmpeg -i &quot;$1&quot; -vf &quot;fps=25,scale=iw/2:ih/2:flags=lanczos,palettegen&quot; -y &quot;/tmp/palette.png&quot;
+  ffmpeg -i &quot;$1&quot; -i &quot;/tmp/palette.png&quot; -lavfi &quot;fps=25,scale=iw/2:ih/2:flags=lanczos [x]; [x][1:v] paletteuse&quot; -f image2pipe -vcodec ppm - | convert -delay 4 -layers Optimize -loop 0 - &quot;${1%.*}.gif&quot;
+}
+</code></pre>
+
+<p>Ask anyone who&rsquo;s been programming for a few years on some kind of linux or unix machine, and they&rsquo;ll have a few of these handy aliases and functions. Good luck, and go forth and <code>alias</code>! Also, tweet me your best aliases @trevorbrindlejs!</p>
+
+<p>Psst - store your aliases in a git repo ;-)</p>
+
+                <br>
+		<p><a href="https://trevorbrindle.com/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+

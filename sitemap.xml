@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://trevorbrindle.com/an-introduction-to-shell-aliases-and-functions/</loc>
+    <lastmod>2019-03-20T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://trevorbrindle.com/blog/</loc>
+    <lastmod>2019-03-20T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://trevorbrindle.com/</loc>
+    <lastmod>2019-03-20T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://trevorbrindle.com/envinfo-an-oss-story/</loc>
+    <lastmod>2018-03-19T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://trevorbrindle.com/working-from-home/</loc>
+    <lastmod>2017-12-29T13:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://trevorbrindle.com/static-sites-with-hugo/</loc>
+    <lastmod>2017-06-07T14:38:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://trevorbrindle.com/staffing-your-team-the-math-behind-it/</loc>
+    <lastmod>2016-02-09T13:46:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://trevorbrindle.com/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://trevorbrindle.com/tags/</loc>
+  </url>
+  
+</urlset>

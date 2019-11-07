@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Trevor Brindle">
+<meta name="description" content="Sometimes finding your place in OSS is totally accidental. This is the story of envinfo: an environment information gathering and debugging tool. It’s how I found my place in open source, and this is where I’m going with it from here.
+The best ideas are the simplest; and this notion becomes no more clear than when you have one of those ideas. Well, you really can’t get any more simple than envinfo.">
+
+<meta property="og:title" content="envinfo: an OSS story" />
+<meta property="og:description" content="Sometimes finding your place in OSS is totally accidental. This is the story of envinfo: an environment information gathering and debugging tool. It’s how I found my place in open source, and this is where I’m going with it from here.
+The best ideas are the simplest; and this notion becomes no more clear than when you have one of those ideas. Well, you really can’t get any more simple than envinfo." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://trevorbrindle.com/envinfo-an-oss-story/" />
+<meta property="article:published_time" content="2018-03-19T00:00:00-05:00" />
+<meta property="article:modified_time" content="2018-03-19T00:00:00-05:00" />
+
+
+<title>
+
+
+     envinfo: an OSS story 
+
+</title>
+<link rel="canonical" href="https://trevorbrindle.com/envinfo-an-oss-story/">
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <link rel="stylesheet" href="https://trevorbrindle.com/css/reset.css?t=2019-11-07%2018%3a57%3a44.176856788%20%2b0000%20UTC%20m%3d%2b0.064534089">
+    <link rel="stylesheet" href="https://trevorbrindle.com/css/pygments.css?t=2019-11-07%2018%3a57%3a44.176856788%20%2b0000%20UTC%20m%3d%2b0.064534089">
+    <link rel="stylesheet" href="https://trevorbrindle.com/css/main.css?t=2019-11-07%2018%3a57%3a44.176856788%20%2b0000%20UTC%20m%3d%2b0.064534089">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://trevorbrindle.com/img/leaf.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+            <img class="avatar" alt="avatar" src="https://gravatar.com/avatar/26221df5145bdf54af1c406561c5a95f?s=50" rcset="https://gravatar.com/avatar/26221df5145bdf54af1c406561c5a95f?s=100 2x, https://gravatar.com/avatar/26221df5145bdf54af1c406561c5a95f?s=150 3x, https://gravatar.com/avatar/26221df5145bdf54af1c406561c5a95f?s=200 4x">
+            
+            <div class="name">Trevor Brindle</div>
+            
+              <h3 class="self-intro">Software Engineer at Modus Create. Interested in React, React Native, music, party parrots, open source software, and automating all the things. Lives and goofs around in Florida with his wife and daughter.</h3>
+            
+            <nav>
+                <ul>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/tabrindle" target="_blank" rel="noopener"><img class="icon" src="https://trevorbrindle.com/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//twitter.com/trevorbrindlejs" target="_blank" rel="noopener"><img class="icon" src="https://trevorbrindle.com/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+            <a href="//linkedin.com/in/trevorbrindle" target="_blank" rel="noopener"><img class="icon" src="https://trevorbrindle.com/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:tabrindle@gmail.com"><img class="icon" src="https://trevorbrindle.com/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://trevorbrindle.com/index.xml"><img class="icon" src="https://trevorbrindle.com/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    envinfo: an OSS story
+
+</div>
+
+                    <div class="initials"><a href="https://trevorbrindle.com"></a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon Mar 19 2018 00:00:00 -0500'>Mar 19, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>6 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p><em>Sometimes finding your place in OSS is totally accidental. This is the story of envinfo: an environment information gathering and debugging tool. It’s how I found my place in open source, and this is where I’m going with it from here.</em></p>
+
+<p>The best ideas are the simplest; and this notion becomes no more clear than when you have one of those ideas. Well, you really can’t get any more simple than envinfo. It may be a useful tool, but is nothing more than a conglomeration of  <code>--version</code>  commands. It didn’t take expert level technical skills to write, and the code is nothing incredible to behold. Yet, it was necessary, and fills a gap in the tech community that somehow we all didn’t see. Here it is:</p>
+
+<blockquote>
+<p><strong>Please mention other relevant information such as the browser version, Node.js version, Operating System and programming language.</strong></p>
+</blockquote>
+
+<h2 id="issue-reporting-on-github">Issue reporting on GitHub</h2>
+
+<p>A few months ago, I was reading through React Native issues on GitHub, and I noticed often critical debugging information was missing. Come on guys, how hard is that? Type <code>node --version</code> into your terminal. Well that’s the point - it’s not hard, but it can be tedious. <strong>But we are engineers; it&rsquo;s in our job descriptions to simplify complex things, or shorten tedious tasks.</strong> So, I wrote a PR for React Native that does exactly this. I changed the CLI to call those commands all in one spot, and updated the issue template to say run <code>react-native info</code></p>
+
+<pre><code>Environment:
+  OS: macOS High Sierra 10.13
+  Node: 8.9.4
+  Yarn: 1.3.2
+  npm: 5.6.0
+  Watchman: 4.9.0
+  Xcode: Xcode 9.0 Build version 9A235
+  Android Studio: 3.0 AI-171.4443003
+
+Packages: (wanted =&gt; installed)
+  react: ^16.3.0-alpha.1 =&gt; 16.3.0-alpha.1
+  react-native: 0.54.1 =&gt; 0.54.1
+</code></pre>
+
+<p>Easy peasy. But here was the problem. My PR sat waiting for review for several weeks. And let’s be honest - this was not a flashy new feature, or a critical bugfix. Such is life when you work on boring developer experience tools. But, the React Native maintainers are incredibly busy, doing amazing work, so I rethought my plan. More projects could benefit from something like this. I thought perhaps adding this code directly into the react native cli was not the way to go. Creating my own package would streamline PRs like this, and it could give me a lot more control.</p>
+
+<h2 id="learning-from-the-best-ionic-cli">Learning from the best: Ionic CLI</h2>
+
+<p>Some projects already have an info or diagnostics command: in fact I got the idea from Ionic. <code>ionic info</code> was the first time I had a really excellent environment debugging experience, and I hoped to recreate that in a generic package. This is how envinfo was born. Its aim is to quickly get development environment information, make it easy to use and simple to integrate with anyone’s tools.</p>
+
+<p>Here it is: <a href="https://github.com/tabrindle/envinfo">envinfo</a></p>
+
+<h2 id="react-jest-styled-components-oh-my">React, Jest, Styled-Components, oh my.</h2>
+
+<p>Once I wrote the package and got it merged in React Native, that’s when everything changed. I realized I was a contributor to React Native, but knew next to nothing about it - and didn’t really have to in order to help. I started filing issues in other projects that I used that were high traffic and I felt could benefit from a streamlined issue reporting process. <strong>Soon enough, <a href="https://github.com/facebook/create-react-app">Create React App</a>, <a href="https://github.com/expo/expo">Expo</a>, <a href="https://github.com/infinitered/solidarity">Solidarity</a>, <a href="https://github.com/styled-components">Styled Components</a> and <a href="https://github.com/facebook/jest">Jest</a> were all using envinfo in some way, and the maintainers were stoked.</strong></p>
+
+<blockquote>
+<p>Love it! Please send a PR :)</p>
+
+<p>Perfect idea!</p>
+
+<p>This is great, want to put the PR in?</p>
+</blockquote>
+
+<p>I’m not going to lie, I was more than a little excited. These were framework writers that I had always looked up to. They liked my idea, and best of all, they had ideas on how to make it better!</p>
+
+<p>Dan Abramov, a React core contributor and the author of <a href="https://github.com/reduxjs/redux">Redux</a>, gave me the idea to look for duplicate packages in the <code>node_modules</code> directory.
+<a href="http://gantlaborde.com/">Gant Laborde</a> (the creator of <a href="https://github.com/infinitered/solidarity">Solidarity</a>, a project based environment checker) gave me the idea for, and even a PR for, checking Android SDK versions.</p>
+
+<p>While discussing adding envinfo to Jest’s issue template, I had the idea to create project specific presets. This would cut down on the number of commands people will have to type or copy/paste.</p>
+
+<p>Now, for new projects, create a new preset in envinfo, and this is all you might have to do:</p>
+
+<pre><code>$ npx envinfo@latest --preset styled-components
+
+
+ System:
+    OS: macOS High Sierra 10.13
+    CPU: x64 Intel(R) Core(TM) i7-4870HQ CPU @ 2.50GHz
+  Binaries:
+    Node: 8.9.4
+    Yarn: 1.3.2
+    npm: 5.6.0
+  Browsers:
+    Chrome: 65.0.3325.146
+    Firefox: 58.0
+    Safari: 11.0
+  npmPackages:
+    styled-components:
+      wanted: ^3.1.6
+      installed: 3.1.6
+    babel-plugin-styled-components:
+      wanted: ^1.5.1
+      installed: 1.5.1
+</code></pre>
+
+<p>But envinfo can do a lot more than just that. In fact, envinfo can do quite a lot. Try this in a React Native project directory:</p>
+
+<pre><code>$ npx envinfo@latest --all
+
+System:
+    OS: macOS High Sierra 10.13
+    CPU: x64 Intel(R) Core(TM) i7-4870HQ CPU @ 2.50GHz
+    Free Memory: 1.13 GB
+    Total Memory: 16.00 GB
+    Shell: /usr/local/bin/bash - 4.4.12
+  Binaries:
+    Node: 8.9.4
+    Yarn: 1.3.2
+    npm: 5.6.0
+    Watchman: 4.9.0
+  Virtualization:
+    Docker: 17.12.0-ce, build c97c6d6
+    Parallels: 13.3.0
+    Virtualbox: 5.2.6r120293
+    VMware Fusion: 10.1.1
+  SDKs:
+    iOS:
+      Platforms: iOS 11.0, macOS 10.13, tvOS 11.0, watchOS 4.0
+    Android:
+      Build Tools: 27.0.3
+      API Levels: 26
+  IDEs:
+    Android Studio: 3.0 AI-171.4443003
+    Atom: 1.23.3
+    VSCode: 1.21.0
+    Sublime Text: Build 3143
+    Xcode: Xcode 9.0 Build version 9A235
+  Languages:
+    Bash: 4.4.12
+    Go: 1.9.3
+    Elixir: 1.6.2
+    PHP: 7.1.7
+    Python: 2.7.10
+    Ruby: 2.3.3p222
+  Browsers:
+    Chrome: 65.0.3325.146
+    Chrome Canary: 67.0.3368.0
+    Firefox: 58.0
+    Firefox Developer Edition: 57.0
+    Firefox Nightly: 58.0a1
+    Safari: 11.0
+    Safari Technology Preview: 11.1
+  npmPackages:
+    babel-jest:
+      wanted: 22.4.1
+      installed: 22.4.1
+    babel-preset-react-native:
+      wanted: 4.0.0
+      installed: 4.0.0
+    jest:
+      wanted: 22.4.2
+      installed: 22.4.2
+    react-test-renderer:
+      wanted: ^16.3.0-alpha.1
+      installed: 16.3.0-alpha.1
+    react:
+      wanted: ^16.3.0-alpha.1
+      installed: 16.3.0-alpha.1
+    react-native:
+      wanted: 0.54.1
+      installed: 0.54.1
+  npmGlobalPackages:
+    create-react-native-app: 1.0.0
+    envinfo: 4.2.1
+    exp: 49.2.2
+    install-subset: 3.0.0
+    lerna: 2.7.1
+    npm: 5.6.0
+    npm-check-updates: 2.14.0
+    react-native-cli: 2.0.1
+    solidarity: 2.0.2
+</code></pre>
+
+<p>Wow, that’s a lot of information. Some of it is easy to find. Some of it is tricky to find, especially across platforms. Some of it simply has never been coalesced into this format before. Speaking of formats, you can use yaml, json, or even markdown as an output. Handy.</p>
+
+<pre><code>$ npx envinfo@latest --preset jest --markdown
+
+## System:
+ - OS: macOS High Sierra 10.13
+ - CPU: x64 Intel(R) Core(TM) i7-4870HQ CPU @ 2.50GHz
+## Binaries:
+ - Node: 8.9.4
+ - Yarn: 1.3.2
+ - npm: 5.6.0
+## npmPackages:
+### jest:
+ - wanted: 22.4.2
+ - installed: 22.4.2
+</code></pre>
+
+<h2 id="your-place-in-open-source">Your place in Open Source</h2>
+
+<p>So what am I saying with this? Don’t feel like you need to write some flashy new framework that does all the things. Don’t feel like you have to know everything about a project to be able to contribute. <strong>Start with a simple idea, or a simple problem and solve it.</strong> It doesn’t have to be beautiful. It doesn’t have to be impressive or complex, but it has to be useful. Remember that there is no need to implement everything all at once.</p>
+
+<p>envinfo is neither beautiful, nor complex, and I’ve mostly written it while waiting for other projects to build. But, it&rsquo;s simple, effective and now part of many major projects, has 600,000+ monthly downloads and is catching on fast. If you think of something you want to see in envinfo, <a href="https://github.com/tabrindle/envinfo/issues">file an issue</a>, or <a href="https://github.com/tabrindle/envinfo/pulls">send a PR</a>!</p>
+
+                <br>
+		<p><a href="https://trevorbrindle.com/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+

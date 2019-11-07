@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Trevor Brindle</title>
+    <link>https://trevorbrindle.com/blog/</link>
+    <description>Recent content in Blog on Trevor Brindle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 20 Mar 2019 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://trevorbrindle.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An Introduction to Shell Aliases &amp; Functions</title>
+      <link>https://trevorbrindle.com/an-introduction-to-shell-aliases-and-functions/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 -0500</pubDate>
+      
+      <guid>https://trevorbrindle.com/an-introduction-to-shell-aliases-and-functions/</guid>
+      <description>Is there a task that you repeat a lot? Is this a task that only you repeat, or is done in a way personal to you? Do you want to use a command in every directory on your computer?  Use a Shell Alias! An alias is simply a shortcut to a command. Use it to avoid typing many options, many commands, or anything that&amp;rsquo;s just too many keystrokes.</description>
+    </item>
+    
+    <item>
+      <title>envinfo: an OSS story</title>
+      <link>https://trevorbrindle.com/envinfo-an-oss-story/</link>
+      <pubDate>Mon, 19 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>https://trevorbrindle.com/envinfo-an-oss-story/</guid>
+      <description>Sometimes finding your place in OSS is totally accidental. This is the story of envinfo: an environment information gathering and debugging tool. It’s how I found my place in open source, and this is where I’m going with it from here.
+The best ideas are the simplest; and this notion becomes no more clear than when you have one of those ideas. Well, you really can’t get any more simple than envinfo.</description>
+    </item>
+    
+    <item>
+      <title>Working from home, a new adventure</title>
+      <link>https://trevorbrindle.com/working-from-home/</link>
+      <pubDate>Fri, 29 Dec 2017 13:00:00 -0500</pubDate>
+      
+      <guid>https://trevorbrindle.com/working-from-home/</guid>
+      <description>Since joining Modus Create, I&amp;rsquo;ve been working from home full time for almost 3 months. That&amp;rsquo;s 60 workdays, 12 workweeks. Seems a bit neurotic to count it that way, as if it is some sort of accident counter: &amp;ldquo;Accident free for&amp;hellip;84&amp;hellip;days&amp;rdquo;. But I assure you for a personality like mine, it seems like a backwards, never ending count down to human contact. I love my family; my wife, my daughter and my one legged Conure Kako, but I really do relish seeing friends and coworkers in person.</description>
+    </item>
+    
+    <item>
+      <title>Static Sites with Hugo</title>
+      <link>https://trevorbrindle.com/static-sites-with-hugo/</link>
+      <pubDate>Wed, 07 Jun 2017 14:38:00 -0500</pubDate>
+      
+      <guid>https://trevorbrindle.com/static-sites-with-hugo/</guid>
+      <description>In case you&amp;rsquo;ve been to my site before, you may have noticed that I&amp;rsquo;m not using Wordpress anymore. Good developers are lazy, but come on&amp;hellip; not that lazy! In an effort to learn something new and not feel as bad about myself, I decided to take a look at a couple static site generators I had seen on Twitter.
+The top contenders are Jekyll, Hugo and Hexo, running on ruby, go and JavaScript.</description>
+    </item>
+    
+    <item>
+      <title>Staffing your team: the math behind it.</title>
+      <link>https://trevorbrindle.com/staffing-your-team-the-math-behind-it/</link>
+      <pubDate>Tue, 09 Feb 2016 13:46:00 -0500</pubDate>
+      
+      <guid>https://trevorbrindle.com/staffing-your-team-the-math-behind-it/</guid>
+      <description>Your products are only as good as your team. Your team is only as good as time and skill allows them to be. And time and skill is not free.
+Even if for some reason, you wished to decouple the concept of being a good business person from being a good manager and people person, to only look at the money at stake, it is still in your benefit to pay to hire good resources, and pay to keep good resources.</description>
+    </item>
+    
+  </channel>
+</rss>
